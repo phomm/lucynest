@@ -6,17 +6,14 @@ from bearlibterminal import bltutils
 import common.utils as utils
 
 
-def about():
+def help():
 
-    blt.set("window.title=' About LucynesꞀ'")
+    blt.set("window.title=' Help LucynesꞀ'")
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
 
-    info = f'''{bltutils.lucynest_colored}
-            
-            It is when you are in lucid dream
-            Open Your mind to go through it and find yourself'''
+    info = "Manual, keybindins..."
 
     while True:
         blt.clear()

@@ -11,3 +11,6 @@ def multiline_trim(input_string, trim_symbols=None, before=True, after=True):
 
 def circulate(count: int, current: int, to_end: bool):
     return (count + current + 1 if to_end else -1) % count
+    
+def but_quit():
+    return "[color=orange]ESC[/color] Back"
