@@ -15,6 +15,8 @@ def reset():
 
 
 def main():
+    version = "v.0.1"
+
     blt.open()
 
     menu_entries = (
@@ -38,6 +40,7 @@ def main():
         blt.clear()
 
         blt.put(5, 5, 0xE001);
+        blt.puts(60, 11, f"[color=orange]{version}[/color]")
 
         for (i, entry) in enumerate(menu_entries):
             bkcolor = "gray" if i == menu_index else "black"
