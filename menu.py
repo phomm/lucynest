@@ -4,6 +4,7 @@ from bearlibterminal import terminal as blt
 from bearlibterminal import bltutils
 from scenes.game import game
 from scenes.about import about
+import common.utils as utils
 
 
 def reset():
@@ -39,10 +40,8 @@ def main():
 
         if key in (blt.TK_ESCAPE, blt.TK_CLOSE):
             break
-        elif key == blt.TK_UP:
-            menu_index = (menu_count + menu_index - 1) % menu_count
-        elif key == blt.TK_DOWN:
-            menu_index = (menu_count + menu_index + 1) % menu_count
+        elif key in (blt.TK_UP, blt.TK_DOWN):
+            menu_index = utils.circulate(menu_count, menu_index, key == blt.TK_DOWN)
 
         elif key == blt.TK_ENTER:
             menu_entries[menu_index][1]()
