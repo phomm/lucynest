@@ -1,12 +1,14 @@
 # coding=utf-8
 
 from bearlibterminal import terminal as blt
-from game import game
-from about import about
+from bearlibterminal import bltutils
+from scenes.game import game
+from scenes.about import about
+import common.utils as utils
 
 
 def reset():
-    blt.set("window: size=80x25, cellsize=auto, title='LucynesT: night time';"
+    blt.set("window: size=80x25, cellsize=auto, title='LucynesꞀ: night time';"
             "input: filter={keyboard}")
     blt.color("white")
 
@@ -29,9 +31,8 @@ def main():
 
         for (i, entry) in enumerate(menu_entries):
             bkcolor = "gray" if i == menu_index else "black"
-            blt.puts(0, i, f"[bkcolor={bkcolor}] {entry[0]} [/bkcolor]",
-                width, height // 2 + i, blt.TK_ALIGN_MIDDLE | blt.TK_ALIGN_CENTER
-            )
+            blt.puts(0, i, f"[bkcolor={bkcolor}] {entry[0]} [/bkcolor]", width, height // 2 + i, bltutils.align_center)
+
         blt.puts(2, 23, "[color=orange]ESC[/color] Exit")
         blt.refresh()
 
@@ -39,10 +40,8 @@ def main():
 
         if key in (blt.TK_ESCAPE, blt.TK_CLOSE):
             break
-        elif key == blt.TK_UP:
-            menu_index = (menu_count + menu_index - 1) % menu_count
-        elif key == blt.TK_DOWN:
-            menu_index = (menu_count + menu_index + 1) % menu_count
+        elif key in (blt.TK_UP, blt.TK_DOWN):
+            menu_index = utils.circulate(menu_count, menu_index, key == blt.TK_DOWN)
 
         elif key == blt.TK_ENTER:
             menu_entries[menu_index][1]()

@@ -2,11 +2,12 @@
 
 from __future__ import division
 from bearlibterminal import terminal as blt
+from bearlibterminal import bltutils
 from collections import namedtuple
 
 
 def game():
-    blt.set("window.title='LucynesT: in a dream'")
+    blt.set("window.title='LucynesꞀ: in a dream'")
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
@@ -17,7 +18,7 @@ def game():
     padding = 1
 
     story = [
-        "Hi! I'm Avatar, actually I'm is who You are in this World",
+        "Hi! I'm Avatar, actually me is who You are in this World",
         "Lets find out what we've got here in lucid dream",
         "Open Your mind and enter this evershining mental landscape",
     ]
@@ -26,11 +27,11 @@ def game():
         blt.clear()
 
         blt.color("light gray")
-        for y in range(height):
-            blt.put(left, y, 0x2588)
-            blt.put(right, y, 0x2588)
-        for x in range(left, right):
-            blt.put(x, middle, 0x2580)
+        for y in range(height - 1):
+            blt.put(left, y, bltutils.box_upper_half)
+            blt.put(right, y, bltutils.box_upper_half)
+        for x in range(left + 1, right):
+            blt.put(x, middle, bltutils.box_whole)
 
         blt.color("white")
         # blt.put_ext(view_width * 4 + 1, 0, margin, margin, 0xE100)
@@ -55,19 +56,17 @@ def game():
             story_point += 1 if story_point < len(story) - 1 else 0
 
 
-
-
 def keys_footer():
     height = blt.state(blt.TK_HEIGHT) - 1
-    keys = {
+    keys = (
         ("ESC", "Exit"),
         ("Enter", "Next"),
         ("PGUP", "Log up"),
         ("PGDN", "Log Down")
-    }
+    )
     offset = 0
-    for (key, value) in keys:
-        blt.puts(offset, height, f"[bkcolor=grey][color=yellow]{key}[/color] [color=black]{value}[/color][/bkcolor]")
-        offset += 2 + len(key) + len(value)
+    for (key, info) in keys:
+        blt.puts(offset, height, f"[bkcolor=grey][color=yellow]{key}[/color] [color=black]{info}[/color][/bkcolor]")
+        offset += 2 + len(key) + len(info)
 
 
