@@ -13,7 +13,7 @@ def about():
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
 
-    info = '''[color=orange]Lucynesꓶ[/color]
+    info = f'''{bltutils.lucynest_colored}
             
             It is when you are in lucid dream
             Open Your mind to go through it and find yourself'''
