@@ -8,12 +8,12 @@ import common.utils as utils
 
 def about():
 
-    blt.set("window.title=' About LucynesT'")
+    blt.set("window.title=' About LucynesꞀ'")
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
 
-    info = '''[color=orange]LucynesT[/color]
+    info = '''[color=orange]Lucynesꓶ[/color]
             
             It is when you are in lucid dream
             Open Your mind to go through it and find yourself'''

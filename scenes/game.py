@@ -7,7 +7,7 @@ from collections import namedtuple
 
 
 def game():
-    blt.set("window.title='LucynesT: in a dream'")
+    blt.set("window.title='LucynesꞀ: in a dream'")
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)

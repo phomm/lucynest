@@ -8,7 +8,7 @@ import common.utils as utils
 
 
 def reset():
-    blt.set("window: size=80x25, cellsize=auto, title='LucynesT: night time';"
+    blt.set("window: size=80x25, cellsize=auto, title='LucynesꞀ: night time';"
             "input: filter={keyboard}")
     blt.color("white")
 
