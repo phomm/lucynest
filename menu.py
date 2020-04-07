@@ -3,6 +3,7 @@
 from bearlibterminal import terminal as blt
 from bearlibterminal import bltutils
 from scenes.game import game
+from scenes.help import help
 from scenes.about import about
 import common.utils as utils
 
@@ -18,6 +19,7 @@ def main():
 
     menu_entries = (
         ("Fall asleep", game),
+        ("Help", help),
         ("About", about)
     )
     width = blt.state(blt.TK_WIDTH)
