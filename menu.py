@@ -2,7 +2,8 @@
 
 from bearlibterminal import terminal as blt
 from game import game
-from about import about
+from scenes.game import game
+from scenes.about import about
 
 
 def reset():
