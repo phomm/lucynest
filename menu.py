@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from bearlibterminal import terminal as blt
-from game import game
+from bearlibterminal import bltutils
 from scenes.game import game
 from scenes.about import about
 
@@ -30,9 +30,8 @@ def main():
 
         for (i, entry) in enumerate(menu_entries):
             bkcolor = "gray" if i == menu_index else "black"
-            blt.puts(0, i, f"[bkcolor={bkcolor}] {entry[0]} [/bkcolor]",
-                width, height // 2 + i, blt.TK_ALIGN_MIDDLE | blt.TK_ALIGN_CENTER
-            )
+            blt.puts(0, i, f"[bkcolor={bkcolor}] {entry[0]} [/bkcolor]", width, height // 2 + i, bltutils.align_center)
+
         blt.puts(2, 23, "[color=orange]ESC[/color] Exit")
         blt.refresh()
 
