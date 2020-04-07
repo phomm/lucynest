@@ -8,17 +8,17 @@ import common.utils as utils
 
 def help():
 
-    blt.set("window.title=' Help LucynesꞀ'")
+    blt.set("window.title=' LucynesꞀ help'")
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
 
-    info = "Manual, keybindins..."
+    info = "Manual, keybindings..."
 
     while True:
         blt.clear()
         blt.puts(0, 0, utils.multiline_trim(info), width, height, bltutils.align_center)
-        blt.puts(2, 23, utils.but_quit())
+        blt.puts(2, 23, utils.button_quit())
 
         blt.refresh()
 

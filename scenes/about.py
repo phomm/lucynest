@@ -21,7 +21,7 @@ def about():
     while True:
         blt.clear()
         blt.puts(0, 0, utils.multiline_trim(info), width, height, bltutils.align_center)
-        blt.puts(2, 23, utils.but_quit())
+        blt.puts(2, 23, utils.button_quit())
 
         blt.refresh()
 
