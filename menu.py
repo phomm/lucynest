@@ -20,10 +20,16 @@ def main():
     menu_entries = (
         ("Fall asleep", game),
         ("Help", help),
-        ("About", about)
+        ("About", about),
+        ("Quit", quit)
     )
+    
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
+
+    cw = blt.state(blt.TK_CELL_WIDTH);
+    ch = blt.state(blt.TK_CELL_HEIGHT);
+    blt.set("U+E001: resources/logo.png, resize=" + str(cw * 70) + "x" + str(ch * 8) + ", resize-filter=nearest");   
 
     reset()
     menu_index = 0
@@ -31,11 +37,12 @@ def main():
     while True:
         blt.clear()
 
+        blt.put(5, 5, 0xE001);
+
         for (i, entry) in enumerate(menu_entries):
             bkcolor = "gray" if i == menu_index else "black"
-            blt.puts(0, i, f"[bkcolor={bkcolor}] {entry[0]} [/bkcolor]", width, height // 2 + i, bltutils.align_center)
+            blt.puts(0, i, f"[bkcolor={bkcolor}] {entry[0]} [/bkcolor]", width, ((height // 3) * 3) + i + 3, bltutils.align_center)
 
-        blt.puts(2, 23, "[color=orange]ESC[/color] Exit")
         blt.refresh()
 
         key = blt.read()
