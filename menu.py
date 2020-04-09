@@ -31,7 +31,7 @@ def main():
 
     cw = blt.state(blt.TK_CELL_WIDTH);
     ch = blt.state(blt.TK_CELL_HEIGHT);
-    blt.set("U+E001: resources/logo.png, resize=" + str(cw * 70) + "x" + str(ch * 8) + ", resize-filter=nearest");   
+    blt.set("U+E001: resources/logo.png, resize=" + str(cw * 70) + "x" + str(ch * 8) + ", resize-filter=bilinear");
 
     reset()
     menu_index = 0
