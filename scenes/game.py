@@ -39,8 +39,8 @@ def game():
         left_avatar = left + 1 + padding
         left_avatar_text = left_avatar + len(avatar_symbol) + 1
 
-        blt.puts(left_avatar, middle // 5, f"[color=orange]{avatar_symbol}[/color]")
-        blt.puts(left_avatar_text, middle // 5, f"{story[story_point]}",
+        blt.puts(left_avatar, middle // 5, bltutils.colored(avatar_symbol, "orange"))
+        blt.puts(left_avatar_text, middle // 5, story[story_point],
                  right - 1 - padding - left_avatar_text, middle - 1 - padding - middle // 5,
                  blt.TK_ALIGN_LEFT)
 
@@ -66,7 +66,8 @@ def keys_footer():
     )
     offset = 0
     for (key, info) in keys:
-        blt.puts(offset, height, f"[bkcolor=grey][color=yellow]{key}[/color] [color=black]{info}[/color][/bkcolor]")
+        key_info = bltutils.colored(key, 'yellow') + ' ' + bltutils.colored(info, 'black')
+        blt.puts(offset, height, bltutils.bkcolored(key_info, 'grey'))
         offset += 2 + len(key) + len(info)
 
 

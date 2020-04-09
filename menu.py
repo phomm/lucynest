@@ -15,7 +15,7 @@ def reset():
 
 
 def main():
-    version = "v.0.1"
+    version = "v0.1.0"
 
     blt.open()
 
@@ -29,9 +29,9 @@ def main():
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
 
-    cw = blt.state(blt.TK_CELL_WIDTH);
-    ch = blt.state(blt.TK_CELL_HEIGHT);
-    blt.set("U+E001: resources/logo.png, resize=" + str(cw * 70) + "x" + str(ch * 8) + ", resize-filter=bilinear");
+    cw = blt.state(blt.TK_CELL_WIDTH)
+    ch = blt.state(blt.TK_CELL_HEIGHT)
+    blt.set("U+E001: resources/logo.png, resize=" + str(cw * 70) + "x" + str(ch * 8) + ", resize-filter=bilinear")
 
     reset()
     menu_index = 0
@@ -39,12 +39,13 @@ def main():
     while True:
         blt.clear()
 
-        blt.put(5, 5, 0xE001);
-        blt.puts(60, 11, f"[color=orange]{version}[/color]")
+        blt.put(5, 5, 0xE001)
+        blt.puts(60, 11, bltutils.colored(version, "orange"))
 
         for (i, entry) in enumerate(menu_entries):
             bkcolor = "gray" if i == menu_index else "black"
-            blt.puts(0, i, f"[bkcolor={bkcolor}] {entry[0]} [/bkcolor]", width, ((height // 3) * 3) + i + 3, bltutils.align_center)
+            item_ypos = ((height // 3) * 3) + i + 3
+            blt.puts(0, i, bltutils.bkcolored(entry[0], bkcolor), width, item_ypos, bltutils.align_center)
 
         blt.refresh()
 
