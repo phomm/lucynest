@@ -4,6 +4,7 @@ from __future__ import division
 from bearlibterminal import terminal as blt
 from bearlibterminal import bltutils
 from collections import namedtuple
+import common.utils as utils
 
 
 def game():
@@ -44,7 +45,7 @@ def game():
                  right - 1 - padding - left_avatar_text, middle - 1 - padding - middle // 5,
                  blt.TK_ALIGN_LEFT)
 
-        keys_footer()
+        blt.puts(2, 23, utils.button("ESC", "Menu"))
 
         blt.refresh()
 

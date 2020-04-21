@@ -13,5 +13,9 @@ def circulate(count: int, current: int, to_end: bool):
     return (count + current + (1 if to_end else -1)) % count
 
 
+def button(k, t):
+    return "[color=orange][[" + k + "]][/color] " + t
+
+
 def button_quit():
-    return "[color=orange]ESC[/color] Back"
+    return button("ESC", "Back")
