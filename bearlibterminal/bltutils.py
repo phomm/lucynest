@@ -8,3 +8,4 @@ lucynest_L = "\u258F[+]\u2581"
 lucynest_T = "\u2594[+]\u2595"
 lucynest = lucynest_L + "ucynes" + lucynest_T
 lucynest_colored = f"[color=orange]{lucynest}[/color]"
+button_colored_fmt = "[color=orange]%s[/color] %s"

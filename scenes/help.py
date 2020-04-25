@@ -10,10 +10,10 @@ offset = 10
 
 def keybindings():
 
-    i = offset
-    j = line
+    offs = offset
+    lin = line
     width = blt.state(blt.TK_WIDTH)
-    h = int(width / 2)
+    half_width = int(width / 2)
     keys = (
         ("ESC", "Exit"),
         ("Enter", "Next"),
@@ -21,11 +21,11 @@ def keybindings():
         ("PGDN", "Log Down")
     )
     for (key, info) in keys:
-        blt.puts(i, j, utils.button(key, info))
-        i = i + h
-        if i > h + offset:
-            j = j + 1
-            i = offset
+        blt.puts(offs, lin, utils.button(key, info))
+        offs = offs + half_width
+        if offs > half_width + offset:
+            lin = lin + 1
+            offs = offset
         
 
 def help():

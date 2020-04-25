@@ -15,7 +15,7 @@ def circulate(count: int, current: int, to_end: bool):
 
 
 def button(key, caption):
-    return "[color=orange]" + bltutils.lucynest_L + key.lower() + bltutils.lucynest_T + "[/color] " + caption.lower()
+    return bltutils.button_colored_fmt % (key, caption)
 
 
 def button_quit():
