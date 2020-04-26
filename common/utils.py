@@ -1,4 +1,5 @@
 from itertools import repeat
+from bearlibterminal import bltutils
 
 
 def multiline_trim(input_string, trim_symbols=None, before=True, after=True):
@@ -13,5 +14,9 @@ def circulate(count: int, current: int, to_end: bool):
     return (count + current + (1 if to_end else -1)) % count
 
 
+def button(key, caption):
+    return bltutils.button_colored_fmt % (key, caption)
+
+
 def button_quit():
-    return "[color=orange]ESC[/color] Back"
+    return button("ESC", "Back")
