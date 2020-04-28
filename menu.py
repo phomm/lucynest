@@ -2,10 +2,10 @@
 
 from bearlibterminal import terminal as blt
 from bearlibterminal import bltutils
-from scenes.game import game
-from scenes.help import help
-from scenes.about import about
-import common.utils as utils
+from scenes import game
+from scenes import help
+from scenes import about
+from common import utils
 
 
 def reset():
@@ -20,9 +20,9 @@ def main():
     blt.open()
 
     menu_entries = (
-        ("Fall asleep", game),
-        ("Help", help),
-        ("About", about),
+        ("Fall asleep", game.scene),
+        ("Help", help.scene),
+        ("About", about.scene),
         ("Quit", quit)
     )
     

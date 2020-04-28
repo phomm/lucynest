@@ -4,10 +4,11 @@ from __future__ import division
 from bearlibterminal import terminal as blt
 from bearlibterminal import bltutils
 from collections import namedtuple
+from common import textutils
 
 
-def game():
-    blt.set("window.title='LucynesꞀ: in a dream'")
+def scene():
+    blt.set(f"window.title='{textutils.lucynest}: in a dream'")
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)

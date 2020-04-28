@@ -1,19 +1,18 @@
 # coding=utf-8
 
 from __future__ import division
-from bearlibterminal import terminal as blt
-from bearlibterminal import bltutils
-import common.utils as utils
+from bearlibterminal import bltutils, terminal as blt
+from common import utils, textutils
 
 
-def about():
+def scene():
 
-    blt.set("window.title=' About LucynesꞀ'")
+    blt.set(f"window.title=' About {textutils.lucynest}'")
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
 
-    info = f'''{bltutils.lucynest_colored}
+    info = f'''{textutils.lucynest_colored}
             
             It is when you are in lucid dream
             Open Your mind to go through it and find yourself'''
