@@ -5,10 +5,13 @@ from bearlibterminal import terminal as blt
 from bearlibterminal import bltutils
 from collections import namedtuple
 from common import textutils
+from models.world import World
 
 
 def scene():
     blt.set(f"window.title='{textutils.lucynest}: in a dream'")
+
+    world = World()
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
@@ -45,7 +48,10 @@ def scene():
                  right - 1 - padding - left_avatar_text, middle - 1 - padding - middle // 5,
                  blt.TK_ALIGN_LEFT)
 
-        keys_footer()
+        line = 1
+        for element in world.avatar.elements:
+            blt.puts(0, line, bltutils.colored(element.scale.current_value, element.name))
+            line += 1
 
         blt.refresh()
 
