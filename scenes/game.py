@@ -4,11 +4,14 @@ from __future__ import division
 from bearlibterminal import terminal as blt
 from bearlibterminal import bltutils
 from collections import namedtuple
-import common.utils as utils
+from common import textutils
+from models.world import World
 
 
-def game():
-    blt.set("window.title='LucynesꞀ: in a dream'")
+def scene():
+    blt.set(f"window.title='{textutils.lucynest}: in a dream'")
+
+    world = World()
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
@@ -40,12 +43,15 @@ def game():
         left_avatar = left + 1 + padding
         left_avatar_text = left_avatar + len(avatar_symbol) + 1
 
-        blt.puts(left_avatar, middle // 5, f"[color=orange]{avatar_symbol}[/color]")
-        blt.puts(left_avatar_text, middle // 5, f"{story[story_point]}",
+        blt.puts(left_avatar, middle // 5, bltutils.colored(avatar_symbol, "orange"))
+        blt.puts(left_avatar_text, middle // 5, story[story_point],
                  right - 1 - padding - left_avatar_text, middle - 1 - padding - middle // 5,
                  blt.TK_ALIGN_LEFT)
 
-        blt.puts(2, 23, utils.button("ESC", "Menu"))
+        line = 1
+        for element in world.avatar.elements:
+            blt.puts(0, line, bltutils.colored(element.scale.current_value, element.name))
+            line += 1
 
         blt.refresh()
 
@@ -67,7 +73,8 @@ def keys_footer():
     )
     offset = 0
     for (key, info) in keys:
-        blt.puts(offset, height, f"[bkcolor=grey][color=yellow]{key}[/color] [color=black]{info}[/color][/bkcolor]")
+        key_info = bltutils.colored(key, 'yellow') + ' ' + bltutils.colored(info, 'black')
+        blt.puts(offset, height, bltutils.bkcolored(key_info, 'grey'))
         offset += 2 + len(key) + len(info)
 
 

@@ -1,11 +1,29 @@
+# coding=utf-8
+
 from bearlibterminal import terminal as blt
 
 
 align_center = blt.TK_ALIGN_MIDDLE | blt.TK_ALIGN_CENTER
 box_whole = 0x2580
 box_upper_half = 0x2588
-lucynest_L = "\u258F[+]\u2581"
-lucynest_T = "\u2594[+]\u2595"
-lucynest = lucynest_L + "ucynes" + lucynest_T
-lucynest_colored = f"[color=orange]{lucynest}[/color]"
-button_colored_fmt = "[color=orange]%s[/color] %s"
+
+
+def __tagged(tag, value, text):
+    __tag_template = "[%s=%s]%s[/%s]"
+    return __tag_template % (tag, value, text, tag)
+
+
+def colored(text, color):
+    return __tagged("color", color, text)
+
+
+def bkcolored(text, color):
+    return __tagged("bkcolor", color, text)
+
+
+def fullcolored(text, color, bkcolor):
+    return bkcolored(colored(text, color), bkcolor)
+
+
+
+

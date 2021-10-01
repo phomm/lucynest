@@ -1,17 +1,17 @@
 # coding=utf-8
 
 from __future__ import division
-from bearlibterminal import terminal as blt
-from bearlibterminal import bltutils
-import common.utils as utils
+from bearlibterminal import bltutils, terminal as blt
+from common import utils, textutils
 
 line = 12
 offset = 10
 
+
 def keybindings():
 
-    offs = offset
-    lin = line
+    current_offset = offset
+    current_line = line
     width = blt.state(blt.TK_WIDTH)
     half_width = int(width / 2)
     keys = (
@@ -21,16 +21,16 @@ def keybindings():
         ("PGDN", "Log Down")
     )
     for (key, info) in keys:
-        blt.puts(offs, lin, utils.button(key, info))
-        offs = offs + half_width
-        if offs > half_width + offset:
-            lin = lin + 1
-            offs = offset
-        
+        blt.puts(current_offset, current_line, utils.button(key, info))
+        current_offset = current_offset + half_width
+        if current_offset > half_width + offset:
+            current_line = current_line + 1
+            current_offset = offset
 
-def help():
 
-    blt.set("window.title=' LucynesꞀ help'")
+def scene():
+
+    blt.set(f"window.title=' {textutils.lucynest} help'")
 
     width = blt.state(blt.TK_WIDTH)
     height = blt.state(blt.TK_HEIGHT)
@@ -47,7 +47,7 @@ def help():
         blt.puts(0, line - 2, "Keybindings", width, line - 2, blt.TK_ALIGN_CENTER)
         keybindings()
 
-        blt.puts(2, 23, utils.button_quit())
+        blt.puts(2, height - 2, utils.button_quit())
 
         blt.refresh()
 

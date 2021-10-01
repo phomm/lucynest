@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from itertools import repeat
 from bearlibterminal import bltutils
 
@@ -7,7 +9,7 @@ def multiline_trim(input_string, trim_symbols=None, before=True, after=True):
         (True, True): str.strip, (False, False): lambda s, _: s,
         (True, False): str.lstrip, (False, True): str.rstrip
     }
-    return str.join("\n", map(trim_funcs[(before, after)], input_string.split("\n"), repeat(trim_symbols or ' ')))
+    return str.join("\n", map(trim_funcs[(before, after)], input_string.split("\n"), repeat(trim_symbols or " ")))
 
 
 def circulate(count: int, current: int, to_end: bool):
@@ -15,7 +17,7 @@ def circulate(count: int, current: int, to_end: bool):
 
 
 def button(key, caption):
-    return bltutils.button_colored_fmt % (key, caption)
+    return f"{bltutils.colored(key, 'orange')} {caption}"
 
 
 def button_quit():
