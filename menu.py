@@ -23,7 +23,7 @@ def main():
         ("Fall asleep", game.scene),
         ("Help", help.scene),
         ("About", about.scene),
-        ("Quit", quit)
+        ("Quit", blt.close)
     )
     
     width = blt.state(blt.TK_WIDTH)
